@@ -63,7 +63,7 @@ docker build --build-arg DIR="home/squad" --build-arg GIT="https://github.com/Th
 ```
 For more information, please refer to the [docker build](https://docs.docker.com/engine/reference/commandline/build/) reference.
 
-This README.md is written by Lars van Soest, *dev@larsvansoest.nl*, and published on October 10th, 2020.
+This README.md is written by Lars van Soest, *dev@larsvansoest.nl*, and published on October 10th, 2020. 
 
 ## References
 - [Docker Docs](https://docs.docker.com/) *Docker Inc. (2020). Docker documentation. Last Accessed: 10-18-2020.*
