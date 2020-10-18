@@ -9,23 +9,23 @@ To [run](https://docs.docker.com/engine/reference/commandline/run/) the containe
 ```
 $ docker run -d -it larsvansoest/squadjs
 ```
-At first launch, the installation is not [configured](#Configuration) to connect with a [Squad Server](https://squad.gamepedia.com/Dedicated_server). Subsequently, the [SquadJS](https://github.com/Thomas-Smyth/SquadJS) executable will exit. If desired, to override the [SquadJS](https://github.com/Thomas-Smyth/SquadJS) executable entrypoint, append the run command with command parameters. For example, the command below runs the container with a shell as its default entrypoint. To run node from the shell, execute `# node index.js`.
+At first launch, the installation is not [configured](#Configuration) to connect with a [Squad Server](https://squad.gamepedia.com/Dedicated_server). Subsequently, the [SquadJS](https://github.com/Thomas-Smyth/SquadJS) executable will exit. If desired, to override the [SquadJS](https://github.com/Thomas-Smyth/SquadJS) executable entry point, append the run command with command parameters. For example, the command below runs the container with a shell as its default entry point. To run Node from the shell, execute `# node index.js`.
 ```
 $ docker run -d -it larsvansoest/squadjs /bin/sh
 ```
 For instructions on how to configure the SquadJS module, please refer to the [Configuration](#Configuration) section below.
 
 ## Volume
-The entirity of the source of the container, including the [SquadJS](https://github.com/Thomas-Smyth/SquadJS) installation, is located on a [volume](https://docs.docker.com/storage/volumes/) mount. The [build argument](#Build-Arguments) *DIR* with default value `"home/squad"` specifies the mount location at build time. 
+The entirety of the source of the container, including the [SquadJS](https://github.com/Thomas-Smyth/SquadJS) installation, is located on a [volume](https://docs.docker.com/storage/volumes/) mount. The [build argument](#Build-Arguments) *DIR* with default value `"home/squad"` specifies the mount location at build time. 
 
 ## Configuration
-To configure the installed [SquadJS](https://github.com/Thomas-Smyth/SquadJS) module, modify the source in the [volume](#Volume). As usual, the volume can be edited from [within](#Modify-From-Outside-the-Container) and from [outside](#Modify-From-Outside-the-Container). In most cases, modifying from [within](#Modify-From-Outside-the-Container) requires an addition of container space for the installation of file interaction systems.
+To configure the installed [SquadJS](https://github.com/Thomas-Smyth/SquadJS) module, modify the source in the [volume](#Volume). As usual, the volume can be edited from [within](#Modify-From-Outside-the-Container) and from [outside](#Modify-From-Outside-the-Container). In most cases, modifying from [within](#Modify-From-Outside-the-Container) requires additional container space for the installation of file interaction systems.
 
 ### Config.json
 The installation source contains the `config.json` file. For an elaborate explanation on the different aspects of the `config.json` file components, please refer to the article '[Configuring SquadJS](https://github.com/Thomas-Smyth/SquadJS#configuring-squadjs)' of the [SquadJS GitHub Repository](https://github.com/Thomas-Smyth/SquadJS), which contains instructions on [server configuration](https://github.com/Thomas-Smyth/SquadJS#server), [connectors](https://github.com/Thomas-Smyth/SquadJS#connectors), [squad layer filters](https://github.com/Thomas-Smyth/SquadJS#squad-layer-filter), [mysql](https://github.com/Thomas-Smyth/SquadJS#mysql), [included plugins](https://github.com/Thomas-Smyth/SquadJS#plugins-1) and [https://github.com/Thomas-Smyth/SquadJS#creating-your-own-plugins](https://github.com/Thomas-Smyth/SquadJS#creating-your-own-plugins).
 
 ### Modify From Within the Container
-To optimise storage, a docker contains only contain those packages necessary for serving its purpose. Therefore, at first launch, no texteditor is included with the container. By default, the container comes with the `sed` command, which allows inline file modification. For instructions and an example on using sed to modify [config.json](#Config.json), please refer to '[Using sed]()' below. If storage optimisation is not the main priority, install a text editor such as [GNU nano](https://en.wikipedia.org/wiki/GNU_nano). For instructions on how to install and edit [config.json](#Config.json), refer to '[Using nano](#Using-nano)' below.
+To optimise storage, a docker contains only contain those packages necessary for serving its purpose. Therefore, at first launch, no text editor is included with the container. By default, the container comes with the `sed` command, which allows inline file modification. For instructions and an example on using sed to modify [config.json](#Config.json), please refer to '[Using sed]()' below. If storage optimisation is not the main priority, install a text editor such as [GNU nano](https://en.wikipedia.org/wiki/GNU_nano). For instructions on how to install and edit [config.json](#Config.json), refer to '[Using nano](#Using-nano)' below.
 
 #### Using nano
 To install nano, perform the following series of commands below.
@@ -63,7 +63,7 @@ docker build --build-arg DIR="home/squad" --build-arg GIT="https://github.com/Th
 ```
 For more information, please refer to the [docker build](https://docs.docker.com/engine/reference/commandline/build/) reference.
 
-This README.md is written by Lars van Soest, *dev@larsvansoest.nl*, and published October 10th, 2020.
+This README.md is written by Lars van Soest, *dev@larsvansoest.nl*, and published on October 10th, 2020.
 
 ## References
 - [Docker Docs](https://docs.docker.com/) *Docker Inc. (2020). Docker documentation. Last Accessed: 10-18-2020.*
